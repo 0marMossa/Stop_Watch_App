@@ -22,25 +22,25 @@
 #define STPWTCHTEMP_HOUR_TENS_INDEX	0
 /**************************/
 
-/*** Options for STPWTCHTEMP_u8TimeUpdateNotification ***/
+/*** Options for STPWTCHTIMER_u8TimeUpdateNotification ***/
 #define NO_UPDATE_NEEDED 	0
 #define UPDATE_NEEDED		1
 /********************************************************/
 
-/*** Options for u8 STPWTCHTEMP_u8StopWatchStatus ***/
+/*** Options for u8 STPWTCHTIMER_u8StopWatchStatus ***/
 #define COUNTING 			0
 #define NOT_COUNTING		1
 /****************************************************/
 
 
 
-u8 STPWTCHTEMP_u8StopWatchStatus = NOT_COUNTING ;
-u8 STPWTCHTEMP_u8TimeUpdateNotification = NO_UPDATE_NEEDED ;
+u8 STPWTCHTIMER_u8StopWatchStatus = NOT_COUNTING ;
+u8 STPWTCHTIMER_u8TimeUpdateNotification = NO_UPDATE_NEEDED ;
 extern u8 STPWTCHTEMP_Au8DisplayedDigits[6] ;
 
-void STPWTCHTEMP_voidStartCountingDown(void)
+void STPWTCHTIMER_voidStartCountingDown(void)
 {
-	STPWTCHTEMP_u8StopWatchStatus = COUNTING ;
+	STPWTCHTIMER_u8StopWatchStatus = COUNTING ;
 	u8 Local_u8TotalSeconds = STPWTCHTEMP_Au8DisplayedDigits[ STPWTCHTEMP_SEC_ONES_INDEX ] + ( STPWTCHTEMP_Au8DisplayedDigits[ STPWTCHTEMP_SEC_TENS_INDEX ] * 10 ) ;
 	u8 Local_u8TotalMinutes = STPWTCHTEMP_Au8DisplayedDigits[ STPWTCHTEMP_MIN_ONES_INDEX ] + ( STPWTCHTEMP_Au8DisplayedDigits[ STPWTCHTEMP_MIN_TENS_INDEX ] * 10 ) ;
 	u8 Local_u8TotalHours = STPWTCHTEMP_Au8DisplayedDigits[ STPWTCHTEMP_HOUR_ONES_INDEX ] + ( STPWTCHTEMP_Au8DisplayedDigits[ STPWTCHTEMP_HOUR_TENS_INDEX ] * 10 ) ;
@@ -49,10 +49,10 @@ void STPWTCHTEMP_voidStartCountingDown(void)
 	TIMER0_u8SetPeriodicEvent( 1000000 , &STPWTCHTEMP_voidSetRemainingTime ) ;
 }
 
-void STPWTCHTEMP_voidSetRemainingTime( void )
+void STPWTCHTIMER_voidSetRemainingTime( void )
 {
 	STPWTCHTEMP_u32TotalTimeInSec--; // One second has passed
-	STPWTCHTEMP_u8TimeUpdateNotification = UPDATE_NEEDED ; // Need to update time on LCD 
+	STPWTCHTIMER_u8TimeUpdateNotification = UPDATE_NEEDED ; // Need to update time on LCD 
 }
 
 
