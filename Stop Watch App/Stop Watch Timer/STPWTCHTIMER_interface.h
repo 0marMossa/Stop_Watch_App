@@ -8,7 +8,9 @@
 #ifndef STPWTCHTIMER_INTERFACE
 #define STPWTCHTIMER_INTERFACE
 
-void STPWTCHTIMER_voidStartCountingDown(void) ;
-void STPWTCHTIMER_voidSetRemainingTime( void ) ;
+void STPWTCHTEMP_voidStartCountingDown(void) ;
+void STPWTCHTEMP_voidSetRemainingTime( void ) ;
+
+
 
 #endif
