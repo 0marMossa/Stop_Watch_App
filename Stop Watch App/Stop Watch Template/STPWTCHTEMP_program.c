@@ -96,7 +96,7 @@ u8 STPWTCHTEMP_u8GetAndSetAction( u8 Copy_u8WantedAction )
 			LCD_u8SendData(Copy_u8WantedAction);
 			break ;
 
-			case STPWTCHTEMP_MIN_TENS_POS :
+			case STPWTCHTEMP_MIN_TENS_INDEX :
 			STPWTCHTEMP_Au8DisplayedDigits[ STPWTCHTEMP_MIN_TENS_INDEX ] = Copy_u8WantedAction - '0' ;
 			LCD_u8SendData(Copy_u8WantedAction);
 			break ;
@@ -156,7 +156,7 @@ u8 STPWTCHTEMP_u8GetAndSetAction( u8 Copy_u8WantedAction )
 }
 
 
-void STPWTCHTEMP_u8CheckTimerNotification(void)
+void STPWTCHTEMP_u8CheckAndUpdateStopWatch(void)
 {
 	if ( STPWTCHTEMP_u8TimeUpdateNotification == UPDATE_NEEDED )
 	{

@@ -13,8 +13,7 @@
 void STPWTCHTEMP_voidInit(void);
 u8 STPWTCHTEMP_u8GetAndSetAction( u8 Copy_u8WantedAction ) ;
 u8 STPWTCHTEMP_u8GetDigit( u8 Copy_u8DigitValue , u8 Copy_u8DigitPosition ) ;
-void STPWTCHTEMP_u8CheckTimerNotification(void);
-
+void STPWTCHTEMP_u8CheckAndUpdateStopWatch(void) ;
 
 
 #endif
